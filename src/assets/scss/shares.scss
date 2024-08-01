@@ -12,7 +12,7 @@
     @apply flex items-center justify-center;
   }
   .box {
-    @apply w-full bg-white border border-[#EDF0F2] p-10 rounded-[4px];
+    @apply w-full bg-white border border-[#EDF0F2] rounded-[4px];
     box-shadow: 0px 0px 16px 0px #00000014;
   }
 }

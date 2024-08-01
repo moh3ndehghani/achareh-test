@@ -6,7 +6,7 @@
     </div>
     <div v-else class="mt-4 flex flex-col gap-5">
       <div
-        class="box grid grid-cols-7"
+        class="box py-8 px-10 grid grid-cols-7"
         v-for="(item, index) in state.addresses"
         :key="index"
       >
