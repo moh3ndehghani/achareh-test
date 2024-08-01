@@ -1,6 +1,7 @@
-<script setup>
-</script>
+<template>
+  <router-view></router-view>
+</template>
 
-<template><span class="text-red-500">hi</span></template>
+<script setup></script>
 
 <style scoped></style>

@@ -7,14 +7,14 @@ const HttpClient = axios.create({
   headers: {
     "Content-Type": "application/json;charset=UTF-8",
     Accept: "application/json",
-    "Access-Control-Allow-Origin": "*",
+    // "Access-Control-Allow-Origin": "*",
+    Authorization: "Basic MDk4MjIyMjIyMjI6U2FuYTEyMzQ1Njc4",
   },
 });
 
 HttpClient.interceptors.request.use(
   (config) => {
-    config.headers["X-Response-Delay-In-Seconds"] = "0";
-    config.headers["authorization"] = "";
+    // config.headers["X-Response-Delay-In-Seconds"] = "0";
     return config;
   },
   (error) => {
