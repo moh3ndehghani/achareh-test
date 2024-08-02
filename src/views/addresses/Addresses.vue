@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="p-4">
     <h1>آدرس‌ها و مشخصات</h1>
     <div v-if="!state.loading" role="status" class="animate-pulse w-full mt-4">
       <div class="h-[200px] bg-gray-300 rounded-[4px] w-full"></div>
