@@ -10,13 +10,14 @@
       <input
         :value="props.modelValue"
         @input="(event) => emit('update:modelValue', event.target.value)"
-        type="text"
-        class="input peer"
+        :type="props.type"
+        class="input"
         :class="{ '!border-secondary-color': props.error }"
       />
       <TimesCircle
-        class="remove-icon hidden peer-focus:block"
-        @mousedown.prevent="removeHandler"
+        v-if="props.modelValue"
+        class="remove-icon"
+        @click="removeHandler"
       />
     </div>
     <p class="error" v-if="props.error">{{ props.errorText }}</p>
@@ -34,6 +35,7 @@ const props = defineProps([
   "labelDescription",
   "error",
   "errorText",
+  "type",
 ]);
 const emit = defineEmits(["update:modelValue"]);
 
