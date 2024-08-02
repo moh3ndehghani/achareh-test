@@ -2,10 +2,18 @@
   <div class="add-address-container">
     <div class="add-address">
       <p class="title">لطفا مشخصات و آدرس خود را وارد کنید</p>
-      <Input></Input>
+      <Input label="نام" v-model="state.name" />
     </div>
   </div>
 </template>
+
+<script setup>
+import { reactive } from "vue";
+
+const state = reactive({
+  name: "",
+});
+</script>
 
 <style lang="scss" scoped>
 .add-address-container {
