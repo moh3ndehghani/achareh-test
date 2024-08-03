@@ -5,8 +5,8 @@ class AddressService {
   getAddresses() {
     return HttpClient.get(this.base);
   }
-  addAddress() {
-    return HttpClient.post(this.base);
+  addAddress(data) {
+    return HttpClient.post(this.base, data);
   }
 }
 

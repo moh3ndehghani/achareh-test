@@ -1,5 +1,6 @@
 import axios from "axios";
 // import router from "@/router";
+import { useToast } from "vue-toastification";
 
 const HttpClient = axios.create({
   baseURL: "https://stage.achareh.ir/api",
@@ -25,16 +26,14 @@ HttpClient.interceptors.request.use(
 HttpClient.interceptors.response.use(
   (response) => response.data,
   async (error) => {
-    // if (error.request.responseURL.includes("refresh-token")) {
-    //   //remove token
-    //   //redirect to login
-    //   router.push({ name: "login" });
-    // }
-
+    const toast = useToast();
     if (error && error.response) {
       switch (error.response.status) {
         case 400:
           //Bad request (wrong axios method)
+          for (const [key, value] of Object.entries(error.response.data)) {
+            toast.error(`${key}: ${value}`);
+          }
           console.log("400 error ===>", error);
           break;
         case 401:
@@ -46,6 +45,7 @@ HttpClient.interceptors.response.use(
           console.log("405 error ===>", error);
           break;
         case 500:
+          toast.error("ارور سمت سرور");
           // Internal Server Error
           console.log("500 error ===>", error);
           break;

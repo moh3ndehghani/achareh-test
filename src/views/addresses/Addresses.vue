@@ -1,15 +1,11 @@
 <template>
   <div class="p-4">
-    <h1>آدرس‌ها و مشخصات</h1>
+    <h1 class="md:pt-4">آدرس‌ها و مشخصات</h1>
     <div v-if="!state.loading" role="status" class="animate-pulse w-full mt-4">
       <div class="h-[200px] bg-gray-300 rounded-[4px] w-full"></div>
     </div>
     <div v-else class="mt-4 flex flex-col gap-5">
-      <AddressItem
-        v-for="(item, index) in state.addresses"
-        :item="item"
-        :key="index"
-      />
+      <AddressItem v-for="(item, index) in state.addresses" :item="item" :key="index" />
     </div>
   </div>
 </template>

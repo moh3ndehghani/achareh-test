@@ -4,64 +4,29 @@
       <p class="title">لطفا مشخصات و آدرس خود را وارد کنید</p>
 
       <div class="md:mt-8 mt-4 grid grid-cols-3 gap-5">
-        <div class="col-span-1">
-          <Input
-            label="نام"
-            v-model="first_name"
-            name="first_name"
-            :error="!!errors.first_name"
-            :error-text="errors.first_name"
-          />
+        <div class="col-span-3 md:col-span-1">
+          <Input label="نام" v-model="first_name" name="first_name" :error="!!errors.first_name"
+            :error-text="errors.first_name" />
         </div>
-        <div class="col-span-1">
-          <Input
-            label="نام خانوادگی"
-            v-model="last_name"
-            name="last_name"
-            :error="!!errors.last_name"
-            :error-text="errors.last_name"
-          />
+        <div class="col-span-3 md:col-span-1">
+          <Input label="نام خانوادگی" v-model="last_name" name="last_name" :error="!!errors.last_name"
+            :error-text="errors.last_name" />
         </div>
-        <div class="col-span-1">
-          <Input
-            label="شماره تلفن همراه"
-            type="number"
-            v-model="coordinate_mobile"
-            name="coordinate_mobile"
-            :error="!!errors.coordinate_mobile"
-            :error-text="errors.coordinate_mobile"
-          />
+        <div class="col-span-3 md:col-span-1">
+          <Input label="شماره تلفن همراه" type="number" v-model="coordinate_mobile" name="coordinate_mobile"
+            :error="!!errors.coordinate_mobile" :error-text="errors.coordinate_mobile" />
         </div>
-        <div class="col-span-1">
-          <Input
-            type="number"
-            label="شماره تلفن ثابت(اختیاری)"
-            labelDescription="*با پیش شماره"
-            v-model="coordinate_phone_number"
-            name="coordinate_phone_number"
-            :error="!!errors.coordinate_phone_number"
-            :error-text="errors.coordinate_phone_number"
-          />
+        <div class="col-span-3 md:col-span-1">
+          <Input type="number" label="شماره تلفن ثابت(اختیاری)" labelDescription="*با پیش شماره"
+            v-model="coordinate_phone_number" name="coordinate_phone_number" :error="!!errors.coordinate_phone_number"
+            :error-text="errors.coordinate_phone_number" />
         </div>
-        <div class="col-span-2">
-          <Input
-            label="آدرس"
-            v-model="address"
-            name="address"
-            :error="!!errors.address"
-            :error-text="errors.address"
-          />
+        <div class="col-span-3 md:col-span-2">
+          <Input label="آدرس" v-model="address" name="address" :error="!!errors.address" :error-text="errors.address" />
         </div>
         <div class="col-span-2 mt-5">
-          <RadioGroup
-            v-model="gender"
-            name="gender"
-            :options="radioOptions"
-            label="جنسیت"
-            group-name="gender"
-            :error="!!errors.gender"
-            :error-text="errors.gender"
-          />
+          <RadioGroup v-model="gender" name="gender" :options="radioOptions" label="جنسیت" group-name="gender"
+            :error="!!errors.gender" :error-text="errors.gender" />
         </div>
       </div>
     </div>
@@ -139,9 +104,11 @@ function submit() {
 
 <style lang="scss" scoped>
 .add-address-container {
-  @apply mt-4 p-4 md:p-0;
+  @apply pt-0 p-4 md:p-0 md:w-[810px];
+
   .add-address {
     @apply box p-4 md:px-12 md:py-5;
+
     .title {
       @apply font-bold text-xs md:text-base;
     }
