@@ -1,6 +1,9 @@
 <template>
   <div class="md:p-4">
-    <h1 class="p-4 md:p-0">{{ showTitle }}</h1>
+    <h1 class="p-4 md:p-0 flex items-center gap-2">
+      <BackIcon v-if="state.selectedComponent.name == 'SelectLocation'" class="cursor-pointer" @click="prevStep" />{{
+        showTitle }}
+    </h1>
     <component :is="state.selectedComponent.component" ref="addAddressRef" />
   </div>
   <div class="footer">
@@ -10,7 +13,7 @@
 
 <script setup>
 import { computed, defineAsyncComponent, markRaw, reactive, ref } from "vue";
-
+import BackIcon from "@/components/icons/BackIcon.vue"
 ////////
 
 const AddAddress = defineAsyncComponent(() =>
@@ -22,8 +25,8 @@ const SelectLocation = defineAsyncComponent(() =>
 
 const state = reactive({
   selectedComponent: {
-    name: "AddAddress",
-    component: markRaw(AddAddress),
+    name: "SelectLocation",
+    component: markRaw(SelectLocation),
   },
 });
 
@@ -55,6 +58,13 @@ function nextStep() {
     //   component: markRaw(SelectLocation),
     // };
   }
+}
+
+function prevStep() {
+  state.selectedComponent = {
+    name: "AddAddress",
+    component: markRaw(AddAddress),
+  };
 }
 </script>
 
